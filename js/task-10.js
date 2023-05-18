@@ -12,6 +12,9 @@ function createBoxes(amount) {
   if (amount === "") {
     return;
   }
+  if ([...boxesEl.children].length !== 0) {
+    destroyBoxes();
+  }
   
   boxFirst.style.width = "30px";
   width = parseInt(boxFirst.style.width);
@@ -36,6 +39,7 @@ function destroyBoxes() {
   [...boxesEl.children].forEach(box => {
     box.remove();
   });
+  
 }
 
 const boxesEl = document.querySelector('#boxes');
